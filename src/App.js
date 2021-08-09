@@ -1,7 +1,13 @@
+import { TextEditor } from "./components/TextEditor";
+
 const App = () => {
-  return (
-    <h1> Hello! </h1> 
-  );
+  return (<>
+  
+      <div className="editorContainer">
+        <h1 className="title"> Rich Text Editor! </h1>
+        <TextEditor />
+      </div>    
+  </>);
 }
 
 export default App;

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+.title {
+    margin: 4rem;
+}
+
+.bubbleMenu {
+    background-color: #212121;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+}
+
+.bubbleButton {
+    color: white;
+}
+
+.editorContainer {
+    height: 100vh;
+    width: 100vw;
+    display: flex;    
+    flex-flow: column;
+    align-items: center;
+}
+
+.menuContainer {
+    display: flex;
+}
+
+.ProseMirror {
+    width: 100%;
+    margin: 2rem;
+    width: 60rem;
+    height: auto;
+    min-height: 20rem;
+    text-overflow: wrap;
+    border: 1px solid grey; 
+    padding: 1rem;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.ProseMirror:focus {
+    outline: none;
+}
+
+.ProseMirror p {
+    border-bottom: 0.3px dotted grey;
+    padding-top: 0.5rem;
+}
+
+button {
+    padding: 0.5rem;
+    border: 1px solid grey;
+    border-radius: 3px;
+    margin: 0.3rem;
+    background-color: transparent;
+}
+
+.is-active {
+    border: 1px solid pink;
+    padding: 0.25rem;
+    border-radius: 3px;
+}
+
+.blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0D0D0D, 0.1);
+}
+
+img {
+    width: 20rem;
+    height: auto;
+}
+
+a {
+    cursor: pointer;
+}
