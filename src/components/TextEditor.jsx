@@ -12,6 +12,8 @@ import { AddingTextStyles } from './AddingTextStyles';
 import { AddingLinks } from './AddingLinks';
 import { AddingImages } from './AddingImages';
 import { AddingMemes } from './AddingMemes';
+import Placeholder from '@tiptap/extension-placeholder';
+import { AddMemeInline } from './InlineEmbeds';
 
 export const TextEditor = () => {
 	const editor = useEditor({
@@ -23,20 +25,24 @@ export const TextEditor = () => {
             Dropcursor,
             Underline,
             Link,
-            BubbleMenu
+            BubbleMenu,
+            Placeholder,
         ],
-		autofocus: 'end',
+		autofocus: 'end'
 	});
 
 	return (
 		<>
-            <div className='menuContainer'>
-                <AddingTextStyles editor={editor} />
-                <AddingLinks editor={editor} />
-                <AddingImages editor={editor} />
-                <AddingMemes editor={editor} />            
-            </div>
-            <EditorContent editor={editor} />				
+            <div className="menuEditorContainer">
+                <div className='menuContainer'>
+                    <AddingTextStyles editor={editor} />
+                    <AddingLinks editor={editor} />
+                    <AddingImages editor={editor} />
+                    <AddingMemes editor={editor} />  
+                    <AddMemeInline editor={editor} />         
+                </div>
+                <EditorContent editor={editor} />
+            </div>				
 		</>
 	);
 };

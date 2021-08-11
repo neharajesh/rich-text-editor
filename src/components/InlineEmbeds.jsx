@@ -1,38 +1,39 @@
-import Image from "@tiptap/extension-image";
-import { markInputRule } from "@tiptap/core";
+import { getMyMeme } from '../utilities/fetchMeme';
 
-const urlExpression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})$/gm;
+const imageExpression = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g
+const memeExpression = /\{\{(.+?)_meme\}\}/
 
-const AddInlineImage = Image.extend({
-    addInputRules() {
-        return [
-            markInputRule(urlExpression, this.type)
-        ]
-    }
-})
+export const AddMemeInline = ({ editor }) => {  
+    
+    const embedLink = async() => {
+        let content = editor.getHTML()
+        if(content.match(memeExpression)) {
+            let [meme, memeWord] = content.match(memeExpression)
+            let memeUrl = await getMyMeme(memeWord)
 
-const memeExpression = /^\{\{\*_meme\}\}$/gm;
+            //removes {{cat_meme}}
+            content = content.replace(meme, "")
+            //sets editor with updated content
+            editor.commands.setContent(content)
+            //adds the image 
+            editor.chain().focus().setImage({src: memeUrl}).run()
 
-const AddInlineMeme = Image.extend({
-    addInputRules() {
-        return[
-            markInputRule(memeExpression, this.type)
-        ]
-    }
-})
-
-export const InlineEmbeds = ({ editor }) => {
-    const urlRegex = new RegExp(urlExpression)
-
-    const addEmbed = () => {
-        const url = editor.getHTML()
-        if (url.match(urlRegex)) {
-            editor.chain().focus().setImage({ src: url }).run()
-        }
+        } else if(content.match(imageExpression)){
+            let imageUrl = content.match(imageExpression)
+            
+            //removes image url
+            content = content.replace(imageExpression, `<img src=${imageUrl[0]}`)            
+            editor.commands.setContent(content)
+            //adds image
+            editor.chain().focus().setImage({src: imageUrl[0]}).run()
+        } else {
+            return;
+        } 
     }
 
     return (<>
-        <button onClick={() => addImage()}> Add image </button>
+        <div>
+            <button className="buttonDefault" onClick={() => embedLink()}> Embed </button>
+        </div>
     </>)
-    
 }
