@@ -22,7 +22,7 @@ export const AddMemeInline = ({ editor }) => {
             let imageUrl = content.match(imageExpression)
             
             //removes image url
-            content = content.replace(imageExpression, `<img src=${imageUrl[0]}`)            
+            content = content.replace(imageExpression, `<img src=${imageUrl[0]} />`)            
             editor.commands.setContent(content)
             //adds image
             editor.chain().focus().setImage({src: imageUrl[0]}).run()

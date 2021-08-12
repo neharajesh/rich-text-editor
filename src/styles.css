@@ -94,9 +94,11 @@ body {
 
 .ProseMirror p.is-editor-empty:first-child::before {
     content: attr(data-placeholder);
-    color: lightslategrey;
+    float: left;
+    color: #cdd1d4;
     pointer-events: none;
-  }
+    height: 0;
+}
 
 .buttonDefault {
     padding: 0.5rem;
@@ -195,4 +197,9 @@ a {
 .badge a {
     color: black;
     text-decoration: none;
+}
+
+.smallMeme {
+    height: 10px;
+    width: auto;
 }
