@@ -1,6 +1,13 @@
 # Rich Text Editor
 Live URL : https://richtexteditor-neharajesh.netlify.app/
 
+A Rich Text Editor that allows you to format text, add links, images and memes!
+
+## Tech Stack
+* React  
+* Tiptap Editor
+* Giphy API 
+
 ## What you can do
 
 * Text Utilities : Bold, Italics, Strikethrough and Underline.
