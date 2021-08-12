@@ -6,6 +6,7 @@ export const AddingImages = ({ editor }) => {
     const [ imageUrl, setImageUrl ] = useState("")
     const [ modalOpen, setModalOpen ] = useState(false) 
     const addImage = () => {
+        setModalOpen(false)
         editor.chain().focus().setImage({src: imageUrl}).run()
     }
     

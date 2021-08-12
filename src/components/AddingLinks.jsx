@@ -1,4 +1,3 @@
-import { BubbleMenu } from "@tiptap/react";
 import { useState } from "react"
 import Modal from 'react-modal';
 
@@ -19,9 +18,6 @@ export const AddingLinks = ({ editor }) => {
 
     return(<>
         <div>
-            {editor && <BubbleMenu className="bubbleMenu" editor={editor}>
-                <button className="buttonDefault bubbleButton" onClick={() => setModalOpen(true)}> Add Link </button>
-            </BubbleMenu>}
             <button className="buttonDefault" onClick={() => setModalOpen(true)}> Add Link </button>
             <div className="modalContainer">
                 <Modal className="modal" isOpen={modalOpen} ariaHideApp={false} >

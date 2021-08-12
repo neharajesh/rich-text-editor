@@ -12,6 +12,7 @@ export const AddingMemes = ({ editor }) => {
         const memeUrl = await getMyMeme(meme)
 
         if(memeUrl) {
+            setModalOpen(false)
             editor.chain().focus().setImage({src: memeUrl}).run()
         }
 
