@@ -1,11 +1,13 @@
 import { useState } from "react"
 import Modal from 'react-modal';
 
+//Adding links
 export const AddingLinks = ({ editor }) => {
     let [ newLink, setNewLink ] = useState("")
     const [ modalOpen, setModalOpen ] = useState(false)
 
     const setLink = () => {
+        //Completing link if the user has added an incomplete one.
         if(newLink.substring(0,3) !== "http"){
             newLink = "https://" + newLink
         } else if(newLink.substring(0, 2) !== "www") {

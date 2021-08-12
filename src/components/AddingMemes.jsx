@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { useState } from "react";
 import { formatString } from "../utilities/stringUtilities";
 
+//Adding memes using the Modal
 export const AddingMemes = ({ editor }) => {
     let [ meme, setMeme ] = useState("")
     const [ modalOpen, setModalOpen ] = useState(false)

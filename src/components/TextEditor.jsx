@@ -13,9 +13,10 @@ import { AddingLinks } from './AddingLinks';
 import { AddingImages } from './AddingImages';
 import { AddingMemes } from './AddingMemes';
 import Placeholder from '@tiptap/extension-placeholder';
-import { AddMemeInline } from './InlineEmbeds';
+import { AddInline } from './InlineEmbeds';
 
 export const TextEditor = () => {
+    //Adding extensions that our text editor will need
 	const editor = useEditor({
 		extensions: [StarterKit, 
             Document,
@@ -39,7 +40,7 @@ export const TextEditor = () => {
                     <AddingLinks editor={editor} />
                     <AddingImages editor={editor} />
                     <AddingMemes editor={editor} />  
-                    <AddMemeInline editor={editor} />         
+                    <AddInline editor={editor} />         
                 </div>
                 <EditorContent editor={editor} />
             </div>				

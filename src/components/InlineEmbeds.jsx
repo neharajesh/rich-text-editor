@@ -3,7 +3,8 @@ import { getMyMeme } from '../utilities/fetchMeme';
 const imageExpression = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g
 const memeExpression = /\{\{(.+?)_meme\}\}/
 
-export const AddMemeInline = ({ editor }) => {  
+//Adding memes and images using URL or {{meme_meme}} format
+export const AddInline = ({ editor }) => {  
     
     const embedLink = async() => {
         let content = editor.getHTML()
