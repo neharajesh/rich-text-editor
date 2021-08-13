@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const API_URL = "https://api.giphy.com/v1/stickers/search"
 
